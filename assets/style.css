@@ -177,7 +177,7 @@ section{padding:120px 0;position:relative}
 .cta .big{display:flex;width:max-content;animation:scroll 24s linear infinite;padding:40px 0;border-bottom:1px solid rgba(0,0,0,.12)}
 .cta .big span{font:900 clamp(56px,8.5vw,136px)/1 Montserrat,sans-serif;letter-spacing:-.05em;color:var(--ink);white-space:nowrap;padding-right:56px;display:flex;align-items:center;gap:56px}
 .cta .big span i{font-size:.55em}
-.cta .row{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:46px 0 60px;flex-wrap:wrap}
+.cta .row{display:flex;justify-content:space-between;align-items:center;gap:30px;padding-top:46px;padding-bottom:60px;flex-wrap:wrap}
 .cta .row p{font-size:20px;max-width:560px;color:#25300A;font-weight:500}
 
 footer{background:var(--ink);color:#B5B5BC;padding:100px 0 34px;overflow:hidden}
@@ -282,7 +282,7 @@ footer li a{transition:color .2s;display:inline-flex;gap:8px;align-items:center}
 .side{display:flex;flex-direction:column;gap:14px}
 .side .it{display:flex;gap:18px;align-items:center;background:var(--ink-2);border:1px solid var(--line);border-radius:22px;padding:20px;transition:border-color .3s}
 .side .it:hover{border-color:rgba(182,212,1,.45)}
-.side .it i{width:52px;height:52px;border-radius:16px;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-size:24px;flex:none}
+.side .it>i{width:52px;height:52px;border-radius:16px;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-size:24px;flex:none}
 .side .it small{color:#8F8F97;display:block;font-size:13px}.side .it b{color:#fff;font-weight:600}
 .ok{display:none;text-align:center;padding:40px 0}.ok i{font-size:64px;color:var(--lime)}
 .faq details{border-bottom:1px solid var(--line-d);padding:24px 0}
@@ -315,4 +315,49 @@ footer li a{transition:color .2s;display:inline-flex;gap:8px;align-items:center}
  .cover .in{aspect-ratio:4/3}
  .stat b{font-size:40px}.stat{padding:24px}
  .card{padding:28px;min-height:320px}
+}
+
+/* ===== Corrections de mise en page v2.1 ===== */
+/* 1. Contact : colonnes équilibrées, pile sur téléphone */
+.contact-split{align-items:start;grid-template-columns:1.5fr 1fr}
+/* 2. Bandeau final : texte et bouton alignés sur la grille */
+.cta .row.w{padding-left:32px;padding-right:32px}
+/* 3. Grand nom en pied de page : tient toujours dans la largeur */
+.wordmark{font-size:clamp(28px,7.6vw,108px);overflow:hidden;text-overflow:clip;max-width:100%}
+/* 4. Galerie ADICOM : grille pleine, sans trou */
+.mosaic.m4{grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;grid-auto-flow:dense}
+/* 5. Cartes : contenus qui ne débordent jamais */
+.card,.case,.step,.f,.stat,.ev .box,.side .it{min-width:0}
+.card h3,.case h3,.step h3,.f h3{overflow-wrap:break-word;hyphens:auto}
+.side .it>div{min-width:0}.side .it b{overflow-wrap:anywhere}
+/* 6. Icônes réseaux : rondes et centrées partout */
+.socials a{flex:none;box-sizing:border-box;line-height:1}
+.side .it .socials{margin-top:12px}
+.side .it .socials a{width:40px;height:40px;font-size:18px}
+/* 7. Visuels : jamais d'image écrasée ou décentrée */
+.case .img img,.cover img,.mosaic img,.visual img,.team img{object-position:center}
+.case .img img{object-position:center 30%}
+/* 8. Titres d'accueil de page : retour à la ligne propre */
+.phero h1,.hero h1{text-wrap:balance}
+.phero .lead,.hero .lead{text-wrap:pretty}
+h2{text-wrap:balance}
+h1,h2,h3{overflow-wrap:break-word}
+/* 9. Accordéon FAQ : le signe + reste centré verticalement */
+.faq summary{align-items:center}
+.faq summary i{flex:none}
+@media (max-width:1000px){
+ .contact-split{grid-template-columns:1fr}
+ .cta .row.w{padding-left:22px;padding-right:22px}
+ .mosaic.m4{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}
+ .mosaic.m4 .a{grid-column:span 2}
+}
+@media (max-width:600px){
+ .hero h1{font-size:40px}.phero h1{font-size:36px}
+ .stats{gap:12px}.stat{padding:20px}.stat b{font-size:34px}
+ .fiche{grid-template-columns:1fr}.fiche div{border-right:0!important}
+ .cta .big span{font-size:48px}
+ .visual{height:380px}.visual .p2{width:170px;height:200px}
+ .badge{width:92px;height:92px;top:-20px}
+ .chip{padding:10px 14px}.chip b{font-size:17px}
+ .c1{left:0;top:30px}.c2{left:8px;bottom:24px}
 }
